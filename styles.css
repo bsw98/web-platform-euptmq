@@ -28,8 +28,12 @@ body {
   border-bottom: 0;
   margin-bottom: 0;
 }
-
+[data-component="AccordionHandle"] svg{
+  width:24px;
+}
 [data-component="AccordionHandle"] button {
+  display:flex;
+  justify-content: space-between;
   cursor: pointer;
   width: 100%;
   text-align: left;
@@ -47,8 +51,8 @@ body {
 }
 
 [data-component="AccordionPanel"] {
-  overflow: hidden;
-  height: 0;
+  /* overflow: hidden; */
+  /* height: 0; */
   border-radius: 6px;
   line-height: 1.5;
   font-size: 14px;

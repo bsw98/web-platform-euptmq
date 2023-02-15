@@ -5,14 +5,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
+
+    <script type="text/jsx" data-type="module" src="script.js"></script>
+    
+    <script src="//unpkg.com/react/umd/react.development.js" crossorigin></script>
+    <script src="//unpkg.com/react-dom/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
   </head>
   <body>
     <noscript
       >애플리케이션 구동을 위해서는 JavaScript 활성화가 필요합니다.</noscript
     >
 
-    <figure style="text-align: center; margin: 0">
+    <!-- <figure style="text-align: center; margin: 0">
       <img
         width="600"
         alt="테스트 가이드"
@@ -21,8 +27,8 @@
       <figcaption>
         🎯 index.html 가이드 이미지를 보이지 않도록 한 후, 테스트를 진행합니다.
       </figcaption>
-    </figure>
+    </figure> -->
 
-    <div id="root"></div>
+    <div id="root" style="text-align: center; margin: 0"></div>
   </body>
 </html>
