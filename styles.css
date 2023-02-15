@@ -1,0 +1,64 @@
+body {
+  margin: 20px;
+  background-color: #fff;
+}
+
+[data-component="App"] {
+  width: clamp(320px, 80vw, 1200px);
+  margin: 0 auto;
+}
+
+[data-component="App"] h2 {
+  text-align: center;
+}
+
+[data-component="Accordion"] {
+  border-radius: 6px;
+  border: 1px solid #9de2de;
+  background-color: #f1fcfb;
+  padding: 20px;
+}
+
+[data-component="AccordionItem"] {
+  border-bottom: 1px solid #cfe2e2;
+  margin-bottom: 12px;
+}
+
+[data-component="AccordionItem"]:last-child {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
+[data-component="AccordionHandle"] button {
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  padding: 4px;
+  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 20px;
+  color: #379292;
+  background-color: transparent;
+}
+
+[data-component="AccordionHandle"] button:hover {
+  background-color: #e4ffff;
+}
+
+[data-component="AccordionPanel"] {
+  overflow: hidden;
+  height: 0;
+  border-radius: 6px;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+[data-component="AccordionPanel"].active {
+  height: auto;
+}
+
+[data-component="AccordionPanel"] p {
+  margin: 8px 4px 12px;
+  color: #2e5757;
+}
