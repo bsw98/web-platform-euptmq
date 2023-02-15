@@ -24,7 +24,7 @@ const qna = [
 
 function AccordionPanel(n){
 
-  return ( <div data-component='AccordionPanel'>{qna[n].panel}</div>)
+  return ( <div data-component='AccordionPanel' >{qna[n].panel}</div>)
 }
 
 function AccordionHandle(n){
@@ -67,7 +67,7 @@ function AccordionHandle(n){
 function AccordionItem(n){
   
     return (
-      <div data-Component='AccordionItem'>
+      <div data-component='AccordionItem'>
         {AccordionHandle(n)}
         {AccordionPanel(n)}
        
@@ -83,12 +83,13 @@ class Accordion extends React.Component{
   
 
   render(){
-    return (<div data-Component='Accordion'>
+    return (<div data-component='Accordion'>
       {AccordionItem(0)}
       {AccordionItem(1)}
     </div>);
   }
 }
+
 class App extends React.Component{
 
   render(){
