@@ -3,9 +3,7 @@ const { createRoot } = ReactDOM;
 
 const reactDomRoot = createRoot(document.getElementById('root'));
 
-function d(props){
 
-}
 class Accordion extends Component{
   state = {
     data: [
@@ -26,55 +24,48 @@ class Accordion extends Component{
         `,
       },
     ],
-    firstClick: {
-      onClick : false,
-    }, 
-    secondClick : {
-      onClick : false,
+    firstClick: false,
+    secondClick :false,
     }
-  };
-// 훅 쓰면 안해도 됨
-  constructor(props){
-    super(props);
 
-  }
   
   clickEvent = () => {
     const { firstClick,secondClick } = this.state; 
 
     this.setState({
-      firstClick: {
-        onClick: !firstClick.onClick? firstClick.onClick = true : firstClick.onClick = false
-      },
-      secondClick : {
-        onClick: false
-      }
-     
-   })
+      firstClick: !firstClick?  true :  false
+      ,
+      secondClick : false
+      })
     }
 
   clickEvent2 = () => {
     const { firstClick,secondClick } = this.state; 
 
     this.setState({
-      secondClick: {
-        onClick: !secondClick.onClick? secondClick.onClick = true : secondClick.onClick = false
-        
-      },
-      firstClick : {
-        onClick: false
-      }
+      secondClick: !secondClick? true : false       
+      ,
+      firstClick : false
       
     })
     }
-  
+
+   createMarkup =() => {
+      return {__html: this.state.firstClick? this.state.data[0].panel : null};
+    }
+
+   createMarkup2 =() => {
+      return {__html: this.state.secondClick? this.state.data[1].panel : null};
+    }
+    
   render(){
+
     return (<div data-component='Accordion'>
               <div data-component='AccordionItem'>
                 <div data-component='AccordionHandle'>
                   <button onClick={this.clickEvent}>
                     {this.state.data[0].handle}
-                    {!this.state.firstClick.onClick? (
+                    {!this.state.firstClick? (
                     <svg
                       fill="currentColor"
                       viewBox="0 0 20 20"
@@ -103,14 +94,16 @@ class Accordion extends Component{
                   )}    
                                         
                   </button>
-                  {this.state.firstClick.onClick? this.state.data[0].panel : null}                 
+                  <div data-component='AccordionPanel' dangerouslySetInnerHTML={this.createMarkup()}>
+                                                        
+                  </div>
                 </div>
               </div>
               <div data-component='AccordionItem'>
               <div data-component='AccordionHandle'>
                   <button onClick={this.clickEvent2}>
                     {this.state.data[1].handle}
-                    {!this.state.secondClick.onClick? (
+                    {!this.state.secondClick? (
                     <svg
                       fill="currentColor"
                       viewBox="0 0 20 20"
@@ -139,7 +132,8 @@ class Accordion extends Component{
                   )}    
                                         
                   </button>
-                  {this.state.secondClick.onClick? this.state.data[1].panel : null}                 
+                  <div data-component='AccordionPanel' dangerouslySetInnerHTML={this.createMarkup2()}>                                    
+                  </div>             
                 </div>
               </div>
             </div>);
